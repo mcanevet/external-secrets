@@ -5983,6 +5983,116 @@ spec:
                       required:
                         - auth
                       type: object
+                    protonpass:
+                      description: ProtonPass configures this store to sync secrets using the Proton Pass provider
+                      properties:
+                        auth:
+                          description: |-
+                            Auth contains references to Kubernetes Secrets holding Proton account credentials
+                            (username and password). The provider will authenticate via Proton's SRP protocol
+                            and decrypt vault contents client-side.
+                          properties:
+                            secretRef:
+                              description: SecretRef holds references to Secrets containing the Proton account credentials.
+                              properties:
+                                password:
+                                  description: |-
+                                    Password is a reference to the Kubernetes Secret key that contains
+                                    the Proton account password.
+                                  properties:
+                                    key:
+                                      description: |-
+                                        A key in the referenced Secret.
+                                        Some instances of this field may be defaulted, in others it may be required.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[-._a-zA-Z0-9]+$
+                                      type: string
+                                    name:
+                                      description: The name of the Secret resource being referred to.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$
+                                      type: string
+                                    namespace:
+                                      description: |-
+                                        The namespace of the Secret resource being referred to.
+                                        Ignored if referent is not cluster-scoped, otherwise defaults to the namespace of the referent.
+                                      maxLength: 63
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
+                                      type: string
+                                  type: object
+                                username:
+                                  description: |-
+                                    Username is a reference to the Kubernetes Secret key that contains
+                                    the Proton account username (email address).
+                                  properties:
+                                    key:
+                                      description: |-
+                                        A key in the referenced Secret.
+                                        Some instances of this field may be defaulted, in others it may be required.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[-._a-zA-Z0-9]+$
+                                      type: string
+                                    name:
+                                      description: The name of the Secret resource being referred to.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$
+                                      type: string
+                                    namespace:
+                                      description: |-
+                                        The namespace of the Secret resource being referred to.
+                                        Ignored if referent is not cluster-scoped, otherwise defaults to the namespace of the referent.
+                                      maxLength: 63
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
+                                      type: string
+                                  type: object
+                              required:
+                                - password
+                                - username
+                              type: object
+                          required:
+                            - secretRef
+                          type: object
+                        sessionSecretRef:
+                          description: |-
+                            SessionSecretRef is an optional reference to a Kubernetes Secret that caches the
+                            serialized Proton session (UID, tokens, salted key passphrase). When set, the
+                            provider will attempt to resume an existing session from this Secret on each
+                            reconcile instead of performing a full SRP login. After a successful login or
+                            resume the session is written back automatically. Token rotations are also
+                            persisted via the OnRefresh callback.
+                          properties:
+                            key:
+                              description: |-
+                                A key in the referenced Secret.
+                                Some instances of this field may be defaulted, in others it may be required.
+                              maxLength: 253
+                              minLength: 1
+                              pattern: ^[-._a-zA-Z0-9]+$
+                              type: string
+                            name:
+                              description: The name of the Secret resource being referred to.
+                              maxLength: 253
+                              minLength: 1
+                              pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$
+                              type: string
+                            namespace:
+                              description: |-
+                                The namespace of the Secret resource being referred to.
+                                Ignored if referent is not cluster-scoped, otherwise defaults to the namespace of the referent.
+                              maxLength: 63
+                              minLength: 1
+                              pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
+                              type: string
+                          type: object
+                      required:
+                        - auth
+                      type: object
                     pulumi:
                       description: Pulumi configures this store to sync secrets using the Pulumi provider
                       properties:
@@ -17621,6 +17731,116 @@ spec:
                           type: object
                         baseUri:
                           type: string
+                      required:
+                        - auth
+                      type: object
+                    protonpass:
+                      description: ProtonPass configures this store to sync secrets using the Proton Pass provider
+                      properties:
+                        auth:
+                          description: |-
+                            Auth contains references to Kubernetes Secrets holding Proton account credentials
+                            (username and password). The provider will authenticate via Proton's SRP protocol
+                            and decrypt vault contents client-side.
+                          properties:
+                            secretRef:
+                              description: SecretRef holds references to Secrets containing the Proton account credentials.
+                              properties:
+                                password:
+                                  description: |-
+                                    Password is a reference to the Kubernetes Secret key that contains
+                                    the Proton account password.
+                                  properties:
+                                    key:
+                                      description: |-
+                                        A key in the referenced Secret.
+                                        Some instances of this field may be defaulted, in others it may be required.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[-._a-zA-Z0-9]+$
+                                      type: string
+                                    name:
+                                      description: The name of the Secret resource being referred to.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$
+                                      type: string
+                                    namespace:
+                                      description: |-
+                                        The namespace of the Secret resource being referred to.
+                                        Ignored if referent is not cluster-scoped, otherwise defaults to the namespace of the referent.
+                                      maxLength: 63
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
+                                      type: string
+                                  type: object
+                                username:
+                                  description: |-
+                                    Username is a reference to the Kubernetes Secret key that contains
+                                    the Proton account username (email address).
+                                  properties:
+                                    key:
+                                      description: |-
+                                        A key in the referenced Secret.
+                                        Some instances of this field may be defaulted, in others it may be required.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[-._a-zA-Z0-9]+$
+                                      type: string
+                                    name:
+                                      description: The name of the Secret resource being referred to.
+                                      maxLength: 253
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$
+                                      type: string
+                                    namespace:
+                                      description: |-
+                                        The namespace of the Secret resource being referred to.
+                                        Ignored if referent is not cluster-scoped, otherwise defaults to the namespace of the referent.
+                                      maxLength: 63
+                                      minLength: 1
+                                      pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
+                                      type: string
+                                  type: object
+                              required:
+                                - password
+                                - username
+                              type: object
+                          required:
+                            - secretRef
+                          type: object
+                        sessionSecretRef:
+                          description: |-
+                            SessionSecretRef is an optional reference to a Kubernetes Secret that caches the
+                            serialized Proton session (UID, tokens, salted key passphrase). When set, the
+                            provider will attempt to resume an existing session from this Secret on each
+                            reconcile instead of performing a full SRP login. After a successful login or
+                            resume the session is written back automatically. Token rotations are also
+                            persisted via the OnRefresh callback.
+                          properties:
+                            key:
+                              description: |-
+                                A key in the referenced Secret.
+                                Some instances of this field may be defaulted, in others it may be required.
+                              maxLength: 253
+                              minLength: 1
+                              pattern: ^[-._a-zA-Z0-9]+$
+                              type: string
+                            name:
+                              description: The name of the Secret resource being referred to.
+                              maxLength: 253
+                              minLength: 1
+                              pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$
+                              type: string
+                            namespace:
+                              description: |-
+                                The namespace of the Secret resource being referred to.
+                                Ignored if referent is not cluster-scoped, otherwise defaults to the namespace of the referent.
+                              maxLength: 63
+                              minLength: 1
+                              pattern: ^[a-z0-9]([-a-z0-9]*[a-z0-9])?$
+                              type: string
+                          type: object
                       required:
                         - auth
                       type: object

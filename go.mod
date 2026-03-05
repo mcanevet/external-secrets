@@ -48,6 +48,7 @@ replace (
 	github.com/external-secrets/external-secrets/providers/v1/passbolt => ./providers/v1/passbolt
 	github.com/external-secrets/external-secrets/providers/v1/passworddepot => ./providers/v1/passworddepot
 	github.com/external-secrets/external-secrets/providers/v1/previder => ./providers/v1/previder
+	github.com/external-secrets/external-secrets/providers/v1/protonpass => ./providers/v1/protonpass
 	github.com/external-secrets/external-secrets/providers/v1/pulumi => ./providers/v1/pulumi
 	github.com/external-secrets/external-secrets/providers/v1/scaleway => ./providers/v1/scaleway
 	github.com/external-secrets/external-secrets/providers/v1/secretserver => ./providers/v1/secretserver
@@ -160,6 +161,7 @@ require (
 	github.com/external-secrets/external-secrets/providers/v1/passbolt v0.0.0-00010101000000-000000000000
 	github.com/external-secrets/external-secrets/providers/v1/passworddepot v0.0.0-00010101000000-000000000000
 	github.com/external-secrets/external-secrets/providers/v1/previder v0.0.0-00010101000000-000000000000
+	github.com/external-secrets/external-secrets/providers/v1/protonpass v0.0.0-00010101000000-000000000000
 	github.com/external-secrets/external-secrets/providers/v1/pulumi v0.0.0-00010101000000-000000000000
 	github.com/external-secrets/external-secrets/providers/v1/scaleway v0.0.0-00010101000000-000000000000
 	github.com/external-secrets/external-secrets/providers/v1/secretserver v0.0.0-00010101000000-000000000000
@@ -194,8 +196,10 @@ require (
 	github.com/Devolutions/go-dvls v0.15.0 // indirect
 	github.com/Microsoft/go-winio v0.6.2 // indirect
 	github.com/Onboardbase/go-cryptojs-aes-decrypt v0.0.0-20230430095000-27c0d3a9016d // indirect
+	github.com/ProtonMail/bcrypt v0.0.0-20211005172633-e235017c1baf // indirect
 	github.com/ProtonMail/go-crypto v1.3.0 // indirect
 	github.com/ProtonMail/go-mime v0.0.0-20230322103455-7d82a3887f2f // indirect
+	github.com/ProtonMail/go-srp v0.0.5 // indirect
 	github.com/ProtonMail/gopenpgp/v2 v2.9.0 // indirect
 	github.com/agext/levenshtein v1.2.3 // indirect
 	github.com/akeylesslabs/akeyless-go/v4 v4.3.0 // indirect
@@ -236,6 +240,7 @@ require (
 	github.com/cloudflare/circl v1.6.1 // indirect
 	github.com/cloudru-tech/iam-sdk v1.0.4 // indirect
 	github.com/cloudru-tech/secret-manager-sdk v1.1.1 // indirect
+	github.com/cronokirby/saferith v0.33.0 // indirect
 	github.com/cyberark/conjur-api-go v0.13.8 // indirect
 	github.com/cyphar/filepath-securejoin v0.6.0 // indirect
 	github.com/danieljoos/wincred v1.2.3 // indirect
